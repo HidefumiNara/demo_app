@@ -1,0 +1,29 @@
+<h1>Listing mictoposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mictoposts.each do |mictopost| %>
+      <tr>
+        <td><%= mictopost.content %></td>
+        <td><%= mictopost.user_id %></td>
+        <td><%= link_to 'Show', mictopost %></td>
+        <td><%= link_to 'Edit', edit_mictopost_path(mictopost) %></td>
+        <td><%= link_to 'Destroy', mictopost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mictopost', new_mictopost_path %>
